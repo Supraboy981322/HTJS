@@ -5,6 +5,7 @@ import (
 	"strconv"
 	"net/http"
 	"os"
+	"html/*"
 )
 
 const (
@@ -20,10 +21,17 @@ func main() {
 }
 
 func httpServer(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("GET:  %s\n", r.URL.Path)
-	file, err := os.ReadFile(r.URL.Path[1:])
+	reqFile := r.URL.Path
+	if reqFile == "/" {
+		reqFile += "index.htjs"
+	}
+	fmt.Printf("GET:  %s\n", reqFile)
+	file, err := os.ReadFile(reqFile[1:])
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	
+
 	w.Write(file)
 }
