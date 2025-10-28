@@ -1,0 +1,9 @@
+{
+    "head": {
+        "title": "HTJS"
+    },
+    "body": {
+        "h1": "HTJS",
+        "p": "What if HTML but JSON?"
+    }
+}
